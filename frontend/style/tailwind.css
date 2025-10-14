@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.navlink {
+  @apply p-2 border-1 border-gray-300 rounded hover:border-gray-400 hover:shadow cursor-pointer;
+}
+
+main {
+  @apply flex flex-col items-center min-h-screen;
+}
+
+.segment {
+  @apply max-[400px]:max-w-[98vw] max-w-2xl w-screen p-8 border-1 border-gray-300 hover:border-gray-400 rounded-lg shadow hover:shadow-xl;
+}
