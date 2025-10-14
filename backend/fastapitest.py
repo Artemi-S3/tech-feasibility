@@ -1,20 +1,13 @@
 from typing import List, Optional
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+from models import ItemIn, ItemOut
 
 app = FastAPI(title="FastAPI demo")
 app.add_middleware(CORSMiddleware, 
                    allow_origins=["*"], 
                    allow_methods=["*"], 
                    allow_headers=["*"])
-
-class ItemIn(BaseModel):
-    name: str = Field(..., min_length=1)
-    path: str = Field(..., min_length=2, pattern=r"^(.*/)([^/]*)$")
-
-class ItemOut(ItemIn):
-    id: int
 
 ITEMS: List[ItemOut] = [
     ItemOut(id=0, name="mars images 2020", path="path/to/mars"), 
